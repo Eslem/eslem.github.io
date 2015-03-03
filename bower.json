@@ -1,0 +1,9 @@
+{
+    "name": "eslem-io",
+    "private": true,
+    "dependencies": {
+        "jquery": "~1.11.1",
+        "sfloo": "latest",
+        "font-awesome": "latest"
+    }
+}

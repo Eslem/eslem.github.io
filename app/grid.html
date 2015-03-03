@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+
+    <style>
+        body {
+            font-family: Arial;
+        }
+        
+        .items {
+            list-style-type: none;
+            padding: 0;
+            position: relative;
+            border: 1px solid black;
+            height: 220px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            width: 600px;
+        }
+        
+        .items li {
+            height: 50px;
+            width: 200px;
+            line-height: 50px;
+            padding-left: 20px;
+            border: 1px solid silver;
+            background: #eee;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="items no-filt">
+
+        <li data-group="even">Saturday <a href="#" class="delete">delete</a>
+        </li>
+        <li data-group="prime">Monday <a href="#" class="delete">delete</a>
+        </li>
+        <li data-group="even">Tuesday <a href="#" class="delete">delete</a>
+        </li>
+        <li data-group="prime">Wednesday <a href="#" class="delete">delete</a>
+        </li>
+
+        <li data-group="prime">Wednesday <a href="#" class="delete">delete</a>
+        </li>
+        <li data-group="even">Thursday <a href="#" class="delete">delete</a>
+        </li>
+        <li data-group="prime">Friday <a href="#" class="delete">delete</a>
+        </li>
+        <li data-group="even">Saturday <a href="#" class="delete">delete</a>
+        </li>
+
+        <li data-group="even">Saturday <a href="#" class="delete">delete</a>
+        </li>
+
+    </ul>
+    <button class="append">Add item</button>
+    <button class="no-filetring">No filt</button>
+    <button class="filter" data-filt="prime">Primes</button>
+    <button class="filter" data-filt="even">Primes</button>
+
+
+    <!--[if lte IE 9]><style type="text/css">
+    /* Old IE doesn't support CSS transform or transitions */
+    .items li { position: relative; display: inline-block; }
+</style><![endif]-->
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <script>
+        //  $(function () {
+        $(document.body).on("click", ".delete", function (evt) {
+            evt.preventDefault();
+            $(this).closest("li").remove();
+        });
+
+        $(".append").click(function () {
+            $("<li>New item</li>").insertAfter($(".items").children()[2]);
+        });
+        $(".no-filetring").click(function () {
+            $("ul").removeClass("filtering").addClass("no-filt");
+            $("li").show();
+        });
+
+        $(".filter").click(function () {
+            $("ul").addClass("filtering").removeClass("no-filt");
+            var count = 1;
+            var filter = $(this).attr("data-filt");
+            $("li").each(function () {
+                if ($(this).attr("data-group") == filter) {
+                    $(this).show();
+                    $(this).attr("data-position", count++);
+                } else
+                    $(this).hide();
+            });
+        });
+
+        // Workaround for Webkit bug: force scroll height to be recomputed after the transition ends, not only when it starts
+        $(".items").on("webkitTransitionEnd", function () {
+            //$(this).hide().offset();
+            //$(this).show();
+        });
+        //   });
+
+        function createListStyles(rulePattern, rows, cols) {
+            var rules = [],
+                index = 0;
+            for (var rowIndex = 0; rowIndex < rows; rowIndex++) {
+                for (var colIndex = 0; colIndex < cols; colIndex++) {
+                    var x = (colIndex * 100) + "%",
+                        y = (rowIndex * 100) + "%",
+                        transforms = "{ -webkit-transform: translate3d(" + x + ", " + y + ", 0); transform: translate3d(" + x + ", " + y + ", 0); }";
+                    rules.push(rulePattern.replace("{0}", ++index) + transforms);
+                }
+            }
+            var headElem = document.getElementsByTagName("head")[0],
+                styleElem = $("<style>").attr("type", "text/css").appendTo(headElem)[0];
+            if (styleElem.styleSheet) {
+                styleElem.styleSheet.cssText = rules.join("\n");
+            } else {
+                styleElem.textContent = rules.join("\n");
+            }
+        }
+
+        createListStyles(".items.filtering li[data-position='{0}']", 50, 3);
+        createListStyles(".items.no-filt li:nth-child({0})", 50, 3);
+    </script>
+</body>
+
+</html>
