@@ -42,7 +42,7 @@ module.exports = function (grunt) {
                 }
             },
             less: {
-                files: ['<%= config.app %>/styles/less/{,*/}*.less'],
+                files: ['<%= config.app %>/less/{,*/}*.less'],
                 tasks: ['less']
             },
             jstest: {
@@ -73,7 +73,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: "app/styles/less",
+                        cwd: "app/less",
                         src: ["ea.less"],
                         dest: "app/styles",
                         ext: ".css"
