@@ -61,7 +61,7 @@
         <li data-group="even">Saturday <a href="#" class="delete">delete</a>
         </li>
 
-        <li data-group="even">Saturday <a href="#" class="delete">delete</a>
+        <li data-group="even, prime">Even | Prime <a href="#" class="delete">delete</a>
         </li>
 
     </ul>
@@ -76,7 +76,7 @@
     .items li { position: relative; display: inline-block; }
 </style><![endif]-->
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
 
     <script>
         //  $(function () {
@@ -98,7 +98,11 @@
             var count = 1;
             var filter = $(this).attr("data-filt");
             $("li").each(function () {
-                if ($(this).attr("data-group") == filter) {
+                var data = $(this).attr("data-group");
+                data = data.replace(/\s/g, "");
+                data = data.split(",");
+                console.log(data);
+                if (data.indexOf(filter) != -1) {
                     $(this).show();
                     $(this).attr("data-position", count++);
                 } else
