@@ -55,7 +55,7 @@
         </a>
     </nav>
 
-    <div ui-view class="content col-8 view-animate">        
+    <div ui-view class="content row view-animate container">        
     </div>
 
     <div class="backImage">
@@ -85,7 +85,7 @@
     </a>
     <a href="javascript:slideRight();" id="arrow_right"><img src="images/arrow-right.png" alt="Slide Right" />
     </a>
-    <!-- build:js(.) scripts/vendor.js -->
+    <!-- build:js({app,.tmp}) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="libs/jquery/dist/jquery.js"></script>
     <script src="libs/sfloo/dist/scripts/sfloo.js"></script>
@@ -102,6 +102,10 @@
     <script src="app.js"></script>
     
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/tecnologies.js"></script>
+    
+    
+    <script src="scripts/directives/blockFilter.js"></script>
     <!-- endbuild -->
 
     <script>

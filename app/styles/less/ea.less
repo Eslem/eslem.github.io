@@ -1,5 +1,5 @@
 // bower:less
-@import "../../libs/sfloo/dist/less/sfloo.less";
+@import "../libs/sfloo/dist/less/sfloo.less";
 // endbower
 @import url(http://fonts.googleapis.com/css?family=Coustard|Open+Sans);
 @mainColor: #26d4d1;
@@ -15,6 +15,8 @@ body {
     color: #777;
     background: #000;
     overflow-x: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 h1,
@@ -228,9 +230,12 @@ button {
     left: 0;
     padding-left: 35px;
     z-index: 9999;
+    width: 100%;
+    height: 63%;
+    overflow-y: auto;
     -webkit-font-smoothing: antialiased;
     &.ng-enter, &.ng-leave {
-        .transition(all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s);
+        .transition(all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s);
     }
     &.ng-enter {
         left: 100%;
@@ -240,5 +245,77 @@ button {
     }
     &.ng-leave.ng-leave-active {
         left: -100%;
+    }
+}
+
+.ea-tecnologies-imgs {
+    img {
+        width: 100px;
+    }
+}
+
+.items {
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+    height: 70%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 90%;
+}
+
+.items li {
+    width: 8.3333%;
+    padding-left: 20px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    img {
+        width: 100%;
+    }
+}
+
+.tecnology {
+    
+    cursor: pointer;
+    span {
+        position: absolute;
+        top: 30%;
+        width: 100%;
+        color: #eee;
+        font-weight: bold;
+    }
+    div {
+        opacity: 0;
+        .transition(all .3s);
+        background: rgba(0, 0, 0, .8);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+    }
+    &:hover {
+        div {
+            opacity: 1;
+        }
+    }
+}
+
+.diagonal {
+    .transform(skewX(-25deg));
+    background-color: @mainColor;
+    .normalize, &:before {
+        .transform(skewX(25deg));
+        &:hover {
+            outline: none;
+        }
+    }
+    &:before {
+        margin-left: 5px;
     }
 }

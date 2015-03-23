@@ -13,6 +13,16 @@ app.config(['$stateProvider', '$urlRouterProvider',
             }).state('contact', {
                 url: "/contact",
                 templateUrl: "views/contact.html"
+            }).state('customers', {
+                url: "/customers",
+                templateUrl: "views/customers.html"
+            }).state('projects', {
+                url: "/projects",
+                templateUrl: "views/projects.html"
+            }).state('tecnologies', {
+                url: "/tecnologies",
+                templateUrl: "views/tecnologies.html",
+                controller:"TecnologiesController"
             });
 
     }]);

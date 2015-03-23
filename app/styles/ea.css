@@ -1779,6 +1779,8 @@ body {
   color: #777;
   background: #000;
   overflow-x: hidden;
+  height: 100%;
+  width: 100%;
 }
 h1,
 h2,
@@ -1993,14 +1995,17 @@ button full-screen:hover {
   left: 0;
   padding-left: 35px;
   z-index: 9999;
+  width: 100%;
+  height: 63%;
+  overflow-y: auto;
   -webkit-font-smoothing: antialiased;
 }
 .content.ng-enter,
 .content.ng-leave {
-  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s;
-  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s;
-  -ms-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s;
-  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
+  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
+  -ms-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
+  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
 }
 .content.ng-enter {
   left: 100%;
@@ -2010,4 +2015,77 @@ button full-screen:hover {
 }
 .content.ng-leave.ng-leave-active {
   left: -100%;
+}
+.ea-tecnologies-imgs img {
+  width: 100px;
+}
+.items {
+  list-style-type: none;
+  padding: 0;
+  position: relative;
+  height: 70%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 90%;
+}
+.items li {
+  width: 8.3333%;
+  padding-left: 20px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.items li img {
+  width: 100%;
+}
+.tecnology {
+  cursor: pointer;
+}
+.tecnology span {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  color: #eee;
+  font-weight: bold;
+}
+.tecnology div {
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+.tecnology:hover div {
+  opacity: 1;
+}
+.diagonal {
+  -webkit-transform: skewX(-25deg);
+  -moz-transform: skewX(-25deg);
+  -ms-transform: skewX(-25deg);
+  -o-transform: skewX(-25deg);
+  background-color: #26d4d1;
+}
+.diagonal .normalize,
+.diagonal:before {
+  -webkit-transform: skewX(25deg);
+  -moz-transform: skewX(25deg);
+  -ms-transform: skewX(25deg);
+  -o-transform: skewX(25deg);
+}
+.diagonal .normalize:hover,
+.diagonal:before:hover {
+  outline: none;
+}
+.diagonal:before {
+  margin-left: 5px;
 }
