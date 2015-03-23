@@ -1,0 +1,45 @@
+{
+  "name": "Sfloo",
+  "version": "0.0.22",
+  "main": [
+    "dist/scripts/sfloo.js",
+    "dist/styles/sfloo.css",
+    "dist/less/sfloo.less"
+  ],
+  "ignore": [
+    "app",
+    ".bowerrc",
+    ".gitignore",
+    ".travis.yml",
+    ".jshintignore",
+    ".jshintrc",
+    "bower.json",
+    "Gruntfile.js",
+    "package.json",
+    "README.md",
+    "demo",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest"
+  },
+  "homepage": "https://github.com/Eslem/Sfloo",
+  "authors": [
+    "eslem <j.eslem03@gmail.com>"
+  ],
+  "description": "Less in object oriented",
+  "license": "MIT",
+  "_release": "0.0.22",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.22",
+    "commit": "e324c3ce2bfddcd46b2cbcae4a6bfaa6d0395167"
+  },
+  "_source": "git://github.com/Eslem/Sfloo.git",
+  "_target": "*",
+  "_originalSource": "sfloo"
+}

@@ -4,6 +4,11 @@
     "dependencies": {
         "jquery": "~1.11.1",
         "sfloo": "latest",
-        "font-awesome": "latest"
+        "font-awesome": "latest",
+        "angular-route": "latest",
+        "angular-animate": "latest",
+        "angular-ui-router": "latest",
+        "angular-sanitize": "latest",
+        "angular": "latest"
     }
 }

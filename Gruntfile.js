@@ -42,7 +42,7 @@ module.exports = function (grunt) {
                 }
             },
             less: {
-                files: ['<%= config.app %>/less/{,*/}*.less'],
+                files: ['<%= config.app %>/styles/less/{,*/}*.less'],
                 tasks: ['less']
             },
             jstest: {
@@ -73,7 +73,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: "app/less",
+                        cwd: "app/styles/less",
                         src: ["ea.less"],
                         dest: "app/styles",
                         ext: ".css"
@@ -182,6 +182,8 @@ module.exports = function (grunt) {
         wiredep: {
             app: {
                 ignorePath: /^\/|\.\.\//,
+                directory:'<%= config.app %>/libs',
+                exclude: ['<%= config.app %>/libs/sfloo/dist/styles/sfloo.css'],
                 src: ['<%= config.app %>/index.html','<%= config.app %>/styles/less/ea.less']
             }
         },

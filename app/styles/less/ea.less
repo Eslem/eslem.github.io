@@ -1,0 +1,244 @@
+// bower:less
+@import "../../libs/sfloo/dist/less/sfloo.less";
+// endbower
+@import url(http://fonts.googleapis.com/css?family=Coustard|Open+Sans);
+@mainColor: #26d4d1;
+@blue: #339AF0;
+@green: #A1D751;
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    color: #777;
+    background: #000;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Coustard', serif;
+    color: #fff;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 63px;
+    line-height: 70px;
+    padding: 0;
+    margin: 0;
+}
+
+h5 {
+    font-size: 28px;
+    line-height: 35px;
+    padding: 0;
+    margin: 0;
+    color: #b7b7b7;
+}
+
+a {
+    color: #b7b7b7;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.gradient {
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    opacity: 0;
+}
+/* Set Page Elements */
+
+#logo {
+    font-family: 'Coustard', serif;
+    font-size: 49px;
+    bottom: 40px;
+    height: auto;
+    left: 40px;
+    position: absolute;
+    width: 20%;
+    z-index: 1000;
+    color: #fff;
+}
+
+.main-nav {
+    position: absolute;
+    bottom: 23px;
+    left: 210px;
+    z-index: 1001;
+    ul {
+        li {
+            list-style: none;
+            display: inline;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-left: 1px solid #b7b7b7;
+            a {
+                &.active {
+                    color: #339AF0;
+                }
+            }
+        }
+    }
+}
+
+.social-nav {
+    position: absolute;
+    top: 0px;
+    left: 40px;
+    z-index: 3;
+    a {
+        list-style: none;
+        display: block;
+        float: left;
+        background: #393939;
+        padding: 100px 10px 5px 10px;
+        margin: 1px;
+        opacity: .5;
+        cursor: pointer;
+        .transition(all .1s ease-in);
+        &:hover {
+            opacity: 1;
+            padding-top: 120px;
+        }
+    }
+}
+
+button {
+    full-screen {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 31px;
+        height: 31px;
+        background: url("../images/full-screen-btn.png");
+        border: 0;
+        cursor: pointer;
+        opacity: .7;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+#arrow_left,
+#arrow_right {
+    bottom: 30px;
+    height: 42px;
+    position: absolute;
+    right: 40px;
+    width: 42px;
+    z-index: 1000;
+}
+
+#arrow_left {
+    right: 95px;
+}
+
+.full-back {
+    .absolute;
+    .full;
+    .top;
+    .left;
+    .bottom;
+}
+
+.backImage {
+    div {
+        .full-back;
+        img {
+            .full-back;
+            z-index: 1;
+        }
+        .gradient {
+            z-index: 2;
+        }
+    }
+}
+
+.ea-navigation {
+    font-size: 1.3em;
+    z-index: 3;
+    .absolute;
+    bottom: 0px;
+    left: 30px;
+    overflow-y: hidden;
+    a {
+        padding: 8px 0;
+        position: relative;
+        display: inline-block;
+        margin: 15px 25px;
+        outline: none;
+        color: #eee;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover, &.active {
+            text-decoration: none;
+            color: @mainColor;
+            .transition(all 0.3s);
+        }
+        &::after {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: transparent;
+            content: '';
+            opacity: 0;
+            .transition(opacity 0.3s, -webkit-transform 0.3s);
+            .transform( translateY(10px));
+        }
+        &:hover::after,
+        &:focus::after,
+        &.active::after {
+            opacity: 1;
+            background: @mainColor;
+            .transform( translateY(-8px));
+        }
+    }
+}
+
+.content {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    padding-left: 35px;
+    z-index: 9999;
+    -webkit-font-smoothing: antialiased;
+    &.ng-enter, &.ng-leave {
+        .transition(all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s);
+    }
+    &.ng-enter {
+        left: 100%;
+    }
+    &.ng-enter.ng-enter-active {
+        left: 0px;
+    }
+    &.ng-leave.ng-leave-active {
+        left: -100%;
+    }
+}
