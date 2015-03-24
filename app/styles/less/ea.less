@@ -280,7 +280,6 @@ button {
 }
 
 .tecnology {
-    
     cursor: pointer;
     span {
         position: absolute;
@@ -317,5 +316,28 @@ button {
     }
     &:before {
         margin-left: 5px;
+    }
+}
+
+.home-navigation {
+    margin-left: -37px;
+    margin-top: 14px;
+    text-align: right;
+    a {
+        display: block;
+        padding-left: 100px;
+        background: #393939;
+        padding: 5px 10px 5px 100px;
+        margin: 1px;
+        opacity: .5;
+        text-decoration: none;
+        cursor: pointer;
+        width: 270px;
+        .transition(all .1s ease-in);
+        &:hover {
+            opacity: 1;
+            width: 290px;
+            padding-left: 120px;
+        }
     }
 }
