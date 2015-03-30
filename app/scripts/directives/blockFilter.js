@@ -22,8 +22,12 @@ app.directive('blockFilter', [function () {
                 }
             }
 
-            createListStyles(".ne-block-filt.ne-block-filtering li[data-position='{0}']", 50, iAttrs.cols);
-            createListStyles(".ne-block-filt.ne-block-no-filt li:nth-child({0})", 50, iAttrs.cols);
+            var cols = iAttrs.cols;
+            if($(window).width()<=360){
+                cols=cols/2;
+            }
+            createListStyles(".ne-block-filt.ne-block-filtering li[data-position='{0}']", 50, cols);
+            createListStyles(".ne-block-filt.ne-block-no-filt li:nth-child({0})", 50, cols);
             $(iElement).addClass("ne-block-filt")
             $(iElement).addClass("ne-block-no-filt")
         },

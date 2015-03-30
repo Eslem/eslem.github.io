@@ -11,6 +11,8 @@
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
     <title>Eslem Alzate</title>
 
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1.0, initial-scale=1, user-scalable=no">
+
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="apple-touch-icon" href="images/favicon.png" />
 
@@ -55,7 +57,7 @@
         </a>
     </nav>
 
-    <div ui-view class="content row view-animate container">        
+    <div ui-view class="content row view-animate container">
     </div>
 
     <div class="backImage">
@@ -78,12 +80,15 @@
         <a ui-sref="tecnologies" ng-class="{ active: isActive('tecnologies') }">Tecnologies</a>
         <a ui-sref="projects" ng-class="{ active: isActive('projects') }">Projects</a>
         <a ui-sref="contact" ng-class="{ active: isActive('contact') }">Contact</a>
+
+        <a class="slideNav"><i class="fa fa-bars" onclick="slideNavToggle();"></i>
+    </a>
     </nav>
 
 
-    <a href="javascript:slideLeft();" id="arrow_left"><img src="images/arrow-left.png" alt="Slide Left" />
+    <a class="slider-arrow" href="javascript:slideLeft();" id="arrow_left"><img src="images/arrow-left.png" alt="Slide Left" />
     </a>
-    <a href="javascript:slideRight();" id="arrow_right"><img src="images/arrow-right.png" alt="Slide Right" />
+    <a class="slider-arrow" href="javascript:slideRight();" id="arrow_right"><img src="images/arrow-right.png" alt="Slide Right" />
     </a>
     <!-- build:js({app,.tmp}) scripts/vendor.js -->
     <!-- bower:js -->
@@ -100,12 +105,13 @@
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="app.js"></script>
-    
+
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/tecnologies.js"></script>
-    
-    
+
+
     <script src="scripts/directives/blockFilter.js"></script>
+    <script src="scripts/directives/imgPreload.js"></script>
     <!-- endbuild -->
 
     <script>
@@ -139,6 +145,25 @@
                 },
                 timeout);
         }
+
+        function slideNavToggle() {
+            $(".ea-navigation a:not('.slideNav')").slideToggle().css("display", "block");
+            //$(".ea-navigation a:not('.slideNav')").toggleClass('showing');
+        }
+
+        $(".ea-navigation a:not('.slideNav')").click(function () {
+
+        });
+
+        if ($(window).width() <= 360) {
+            $(document).mouseup(function () {
+                $(".ea-navigation a:not('.slideNav')").slideUp();
+            });
+        }
+        $(".slideNav").mouseup(function (ev) {
+            ev.preventDefault;
+            return false;
+        });
     </script>
 </body>
 
